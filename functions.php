@@ -136,3 +136,67 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+add_action( 'init', 'lightdesignsystems_posttypes' );
+function lightdesignsystems_posttypes() {
+	register_post_type( 'products', array(
+		'labels' => array(
+			'name' => __( 'Products' ),
+			'singular_name' => __( 'Product' ),
+			'search_items' => __( 'Search Products' ),
+			'all_items' => __( 'All Products' ),
+			'edit_item' => __( 'Edit Product' ),
+			'update_item' => __( 'Update Product' ),
+			'add_new_item' => __( 'New Product' ),
+			'menu_name' => __( 'Products' ),
+		),
+		'supports' => array(
+			'title',
+		),
+		'rewrite' => array(
+			'slug' => 'products',
+			'with_front' => false,
+		),
+		'public' => true,
+		'has_archive' => false,
+        'show_in_nav_menus' => true,
+	) );
+}
+
+add_action( 'init', 'lightdesignsystems_taxonomies' );
+function lightdesignsystems_taxonomies() {
+	register_taxonomy( 'product-categories', array( 'products' ), array(
+		'hierarchical' => true,
+		'labels' => array(
+			'name' => _x( 'Product Categories', 'taxonomy general name' ),
+			'singular_name' => _x( 'Product Category', 'taxonomy singular name' ),
+			'search_items' => __( 'Search Product Categories' ),
+			'all_items' => __( 'All Product Categories' ),
+			'edit_item' => __( 'Edit Product Category' ),
+			'update_item' => __( 'Update Product Category' ),
+			'add_new_item' => __( 'New Product Category' ),
+			'menu_name' => __( 'Product Categories' ),
+		),
+		'rewrite' => array(
+			'slug' => 'product-categories',
+			'with_front' => false,
+			'hierarchical' => true,
+		),
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+	));
+}
+
+if( function_exists('acf_add_options_page') ) {
+	
+	acf_add_options_page(array(
+		'page_title' 	=> 'General Settings',
+		'menu_title'	=> 'General Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+	
+}

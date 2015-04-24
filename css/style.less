@@ -112,9 +112,31 @@ dfn {
 	font-style: italic;
 }
 
+h1, h2, h3,
+h4, h5, h6 {
+	font-family: @roboto;
+	margin: 0;
+	color: @blue;
+}
+
 h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
+	font-size: 26px;
+	color: @blue;
+	font-weight: 300;
+}
+
+h2 {
+	margin-bottom: 30px;
+}
+
+h3 {
+	font-size: 20px;
+	margin-bottom: 30px;
+}
+
+h4 {
+	color: black;
+	font-size: 12px;
 }
 
 mark {
@@ -287,7 +309,8 @@ h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	font-size: 16px;
+	font-family: @roboto;
 }
 
 dfn,
@@ -494,13 +517,6 @@ textarea {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-a {
-	color: royalblue;
-}
-
-a:visited {
-	color: purple;
-}
 
 a:hover,
 a:focus,
@@ -520,13 +536,6 @@ a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-}
-
 .main-navigation ul {
 	display: none;
 	list-style: none;
@@ -535,22 +544,39 @@ a:active {
 }
 
 .main-navigation li {
-	float: left;
+	display: inline-block;
 	position: relative;
+	margin: 0 2px;
 }
-
+.main-navigation .menu-item-has-children > a {
+	padding: 5px 30px 5px 10px;
+	background: url(./img/arrow-down.png) no-repeat center right 10px;
+	min-width: 130px;
+}
 .main-navigation a {
 	display: block;
+	height: 100%;
 	text-decoration: none;
+	background: white;
+	box-shadow: inset 0px 0px 10px 0px @grey;
+	-webkit-box-shadow: inset 0px 0px 10px 0px @grey;
+	-moz-box-shadow: inset 0px 0px 10px 0px @grey;
+	-o-box-shadow: inset 0px 0px 10px 0px @grey;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	color: black;
+	letter-spacing: 1px;
+	font-family: @roboto;
+	font-size: 11px;
+	border: 1px solid @grey;
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 	float: left;
 	position: absolute;
-	top: 1.5em;
 	left: -999em;
 	z-index: 99999;
+	width: 100%;
 }
 
 .main-navigation ul ul ul {
@@ -559,11 +585,23 @@ a:active {
 }
 
 .main-navigation ul ul a {
-	width: 200px;
+	width: 100%;
+	background: @lightgrey;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	-o-box-shadow: none;
+	border-top: 0;
+	padding: 10px;
+}
+
+.main-navigation ul ul a:hover {
+	background: @midgrey;	
 }
 
 .main-navigation ul ul li {
-
+	margin: 0;
+	width: 100%;
 }
 
 .main-navigation li:hover > a,
@@ -893,3 +931,299 @@ object {
 --------------------------------------------------------------*/
 @import "modules/variables";
 @import "modules/btn";
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+.cta-wrapper {
+	background: url(./img/cta-contact.jpg) no-repeat center center;
+	height: 300px;
+	background-size: cover;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.cta-wrapper h3 {
+	color: white;
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: 28px;
+	letter-spacing: 1px;
+	line-height: 35px;
+	width: 100%;
+}
+.cta-wrapper h3 .big {
+	font-weight: 600;
+	font-size: 36px;
+	color: white;
+}
+.cta-wrapper h3 .small,
+.hero-wrapper h3 .small {
+	font-size: 20px;
+	color: white;
+}
+.cta-wrapper .btn {
+	cursor: initial;
+	margin-top: 20px;
+}
+.cta-wrapper .btn:hover {
+	color: @blue;
+}
+.hero-wrapper {
+	background: url(./img/hero.jpg) no-repeat center center;
+	height: 300px;
+	background-size: cover;
+	margin-bottom: 50px;
+	margin-top: 5px;
+}
+.hero-wrapper h3 {
+	font-size: 60px;
+	color: white;
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 1px;
+	line-height: 50px;
+	width: 100%;
+}
+.hero-wrapper h3 .big {
+	font-weight: 700;
+	font-size: 50px;
+	color: white;
+}
+.divider-truss {
+	background: url(./img/divider-truss.png) repeat-x center center;
+	height: 30px;
+	margin: 50px 0;
+	width: 100%;
+	display: block;
+}
+.truss {
+	background: url(./img/divider-truss.png) repeat-x center center;
+	width: 100%;
+	margin: 50px 0;
+}
+.truss span {
+	margin-left: 8.33333333%;
+	background: url(./img/blur.png) no-repeat center center;
+	background-size: cover;
+}
+.center {
+	text-align: center;
+}
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#masthead,
+#colophon {
+	background: url(./img/divider-truss.png) repeat-x center center;
+	height: 160px;
+}
+#masthead .wrapper,
+#colophon .wrapper {
+	height: 160px;
+}
+#masthead .top-row
+#colophon .top-row {
+	height: 65px;
+	padding: 5px 0;
+}
+#masthead .bottom-row {
+	position: absolute;
+	bottom: 17px;
+}
+#masthead h1 {
+	margin: 14px 0;
+	float: left;
+}
+#masthead .contact {
+	float: right;
+	height: 65px;
+	padding: 5px 0;
+}
+.lds-phone,
+.lds-email {
+	float: left;
+	font-family: @roboto;
+	text-transform: uppercase;
+	font-size: 21px;
+	letter-spacing: 1px;
+	padding-left: 50px;
+	line-height: 24px;
+}
+.lds-phone {
+	background: url(./img/icon-phone.png) no-repeat center left;
+}
+.lds-email {
+	background: url(./img/icon-email.png) no-repeat center left;
+	margin-left: 15px;
+}
+.lds-phone span,
+.lds-email span {
+	color: @red;
+	font-size: 15px;
+}
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#colophon {
+	padding-top: 20px;
+}
+#colophon #footer-menu {
+	text-align: center;
+}
+#colophon .bottom-row {
+	position: absolute;
+	bottom: 10px;
+	width: 100%;
+}
+#colophon .site-info {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 500;
+	text-align: center;
+	font-size: 12px;
+}
+/*--------------------------------------------------------------
+# Default Page
+--------------------------------------------------------------*/
+.default-page h1 {
+	margin-bottom: 30px;
+}
+/*--------------------------------------------------------------
+# Homepage
+--------------------------------------------------------------*/
+.category-thumb .inner {
+	border: 1px solid @midgrey;
+	min-height: 200px;
+	padding: 15px;
+}
+.category-thumb h4,
+.category-thumb h4 a {
+	text-transform: uppercase;
+	color: black;
+	text-decoration: none;
+}
+.category-thumb img {
+	margin: 15px 0;
+}
+/*--------------------------------------------------------------
+# Products
+--------------------------------------------------------------*/
+.product-category h1 {
+	margin: 20px 15px 40px 15px;
+}
+.single-product {
+	background: @lightgrey;
+	padding: 30px 0 0 0;
+}
+.single-product h1 {
+	margin: 20px 0 40px 0;
+}
+.single-product h1 .small {
+	color: @blue;
+	font-size: 20px;
+	display: block;
+	margin-bottom: 10px;
+}
+.single-product h1 .title {
+	color: black;
+	display: block;
+	margin: 50px 0;
+}
+.single-product .product-details {
+	margin-top: 40px;
+	margin-bottom: 50px;
+	display: inline-block;
+}
+.single-product .product-details .column {
+	height: 170px;
+}
+.single-product .product-details .download {
+	text-transform: uppercase;
+	text-align: center;
+	display: inline-block;
+	width: 100%;
+	font-size: 10px;
+	font-weight: 700;
+	margin-bottom: 10px;
+	height: 30px;
+}
+.single-product .product-details .download:hover {
+	text-decoration: none;
+	color: @darkblue;
+}
+.single-product .product-details .image {
+	display: inline-block;
+}
+.single-product .product-details img {
+	border: 1px solid @grey;
+	height: 130px;
+}
+.single-product .product-details .overlay {
+	height: 130px;
+	float: left;
+	position: absolute;
+	background: rgba(22,104,157,0);
+	left: 15px;
+	right: 15px;
+	color: transparent;
+	padding: 45px 15px;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 12px;
+	letter-spacing: 1px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+.single-product .product-details .image:hover .overlay {
+	background: rgba(22,104,157,0.75);
+	color: white;
+}
+.single-product .product-details .btn-wrap {
+	bottom: 0;
+	left: 15px;
+	right: 15px;
+	position: absolute;
+}
+.single-product .product-details .btn {
+	margin-top: 20px;
+	padding: 15px;
+	text-align: left;
+}
+.single-product .product-details .price {
+	font-family: @roboto;
+	font-weight: 700;
+	line-height: 30px;
+	font-size: 40px;
+}
+.single-product .product-specs {
+	background: white;
+	padding: 50px 0 0 0;
+}
+.single-product .product-specs iframe {
+	width: 100%;
+}
+.single-product .specifications {
+	font-size: 16px;
+	font-family: @roboto;
+	padding-left: 30px;
+}
+.single-product .specifications ul {
+	margin: 15px 0 0 0;
+}
+.single-product .specifications .similar {
+	margin-top: 15px;
+	display: block;
+}
+.single-product .specifications .similar a {
+	margin-bottom: 10px;
+	display: block;
+	font-weight: 500;
+}
+.single-product .specifications .similar a:hover {
+	text-decoration: none;
+	color: @darkblue;
+}
+.single-product .product-specs .summary {
+	margin-top: 50px;
+}

@@ -11,11 +11,29 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'lightdesignsystems' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'lightdesignsystems' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'lightdesignsystems' ), 'lightdesignsystems', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+		<div class="container">
+			<div class="row">
+				<div class="wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="top-row row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+							<nav id="site-navigation" class="main-navigation" role="navigation">
+								<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php _e( 'Primary Menu', 'lightdesignsystems' ); ?></button>
+								<?php wp_nav_menu( array( 'menu' => 25, 'menu_id' => 'footer-menu' ) ); ?>
+							</nav>
+						</div>
+					</div>		
+
+					<div class="bottom-row row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<p class="site-info">
+								Copyright <?php bloginfo('name');?> <?php echo date('Y'); ?>
+							</p><!-- .site-info -->
+						</div>
+					</div>		
+				</div>
+			</div>		
+		</div>	
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
