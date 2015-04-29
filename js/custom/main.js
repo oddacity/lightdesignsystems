@@ -19,4 +19,13 @@ function centerText() {
 
 $(window).load(function(){
 	centerText();
+
+	$(".lazy").lazyload({
+	    effect : "fadeIn",
+	    threshold : 500
+	});
+
+	$('.menu-toggle').click(function(){
+		$('.main-navigation').toggleClass('toggled');
+	});
 });

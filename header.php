@@ -27,16 +27,16 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+				<div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<img src="<?php echo get_template_directory_uri();?>/img/logo.jpg" alt="<?php bloginfo('name');?>"/>
 					</a>
 				</div>
 
-				<div class="wrapper col-lg-10 col-md-10 col-sm-12 col-xs-12">
+				<div class="wrapper col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
 					<div class="top-row row">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<h1><?php bloginfo('name');?></h1>
+							<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo('name');?></a></h1>
 							<div class="contact">
 								<div class="lds-phone">
 									<span>Call Us Toll Free!</span><br/>
@@ -53,13 +53,20 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							
 							<nav id="site-navigation" class="main-navigation" role="navigation">
-								<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php _e( 'Primary Menu', 'lightdesignsystems' ); ?></button>
 								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
 							</nav>
 
 						</div>
 					</div>
 				</div>
+
+				<div id="mobile-nav" class="hidden-lg hidden-md">
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+						<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php _e( 'Menu', 'lightdesignsystems' ); ?></button>
+						<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+					</nav>
+				</div>
+
 			</div>
 
 		</div>	

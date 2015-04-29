@@ -18,7 +18,6 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 							<nav id="site-navigation" class="main-navigation" role="navigation">
-								<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php _e( 'Primary Menu', 'lightdesignsystems' ); ?></button>
 								<?php wp_nav_menu( array( 'menu' => 25, 'menu_id' => 'footer-menu' ) ); ?>
 							</nav>
 						</div>

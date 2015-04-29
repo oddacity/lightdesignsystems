@@ -13,7 +13,7 @@ the_post(); ?>
 	<div class="container">
 		
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+			<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 				<h1>
 					<?php
 
@@ -29,35 +29,38 @@ the_post(); ?>
 		</div>
 
 		<div class="row">
-			<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+			<div class="product-image col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+				<?php if(get_field('4k_product_image')) : ?>
+					<div class="ribbon"><a href="<?php echo the_field('4k_product_image');?>" target="_blank">Download the 4K Image</a></div>
+				<?php endif;?>
 				<img src="<?php echo the_field('product_image');?>" alt="<?php the_title();?>"/>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="product-details">
-				<div class="column col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-6 col-xs-12">
+				<div class="column col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 					<span class="price"><?php echo the_field('price');?></span>
 					<div class="btn-wrap">
 						<a href="/purchase" class="btn btn-blue">Purchase Kit ></a>
 						<a href="/contact" class="btn btn-blue">Contact Us ></a>
 					</div>	
 				</div>
-				<div class="column col-lg-2 col-md-2 col-sm-6 col-xs-12">
-					<a class="download" href="<?php echo the_field('presentational_image_pdf');?>" target="_blank">Presentational Image<br/>Click here for full PDF</a>
-					<a class="image" href="<?php echo the_field('presentational_image');?>" target="_blank"><img src='<?php echo the_field('presentational_image');?>' alt='<?php the_title(); ?>'/><span class="overlay">Click Here For<br/>Full Size Image</span></a>
+				<div class="column col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+					<a class="download" href="<?php echo the_field('presentational_image_pdf');?>" target="_blank">Presentational Image<br/>Click here for PDF</a>
+					<a class="image lazy" href="<?php echo the_field('presentational_image');?>" target="_blank" data-original="<?php echo the_field('presentational_image');?>"><span class="overlay">Click Here For Full Size Image</span></a>
 				</div>
-				<div class="column col-lg-2 col-md-2 col-sm-6 col-xs-12">
-					<a class="download" href="<?php echo the_field('parts_list_image_pdf');?>" target="_blank">Product Parts List<br/>Click here for full PDF</a>
-					<a class="image" href="<?php echo the_field('parts_list_image');?>" target="_blank"><img src='<?php echo the_field('parts_list_image');?>' alt='<?php the_title(); ?>'/><span class="overlay">Click Here For<br/>Full Size Image</span></a>
+				<div class="column col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+					<a class="download" href="<?php echo the_field('parts_list_image_pdf');?>" target="_blank">Product Parts List<br/>Click here for PDF</a>
+					<a class="image lazy" href="<?php echo the_field('parts_list_image');?>" target="_blank" data-original="<?php echo the_field('parts_list_image');?>"><span class="overlay">Click Here For Full Size Image</span></a>
 				</div>
-				<div class="column col-lg-2 col-md-2 col-sm-6 col-xs-12">
-					<a class="download" href="<?php echo the_field('dimensional_top_view_image_pdf');?>" target="_blank">Dimensional Top View<br/>Click here for full PDF</a>
-					<a class="image" href="<?php echo the_field('dimensional_top_view_image');?>" target="_blank"><img src='<?php echo the_field('dimensional_top_view_image');?>' alt='<?php the_title(); ?>'/><span class="overlay">Click Here For<br/>Full Size Image</span></a>
+				<div class="column col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+					<a class="download" href="<?php echo the_field('dimensional_top_view_image_pdf');?>" target="_blank">Dimensional Top View<br/>Click here for PDF</a>
+					<a class="image lazy" href="<?php echo the_field('dimensional_top_view_image');?>" target="_blank" data-original="<?php echo the_field('dimensional_top_view_image');?>"><span class="overlay">Click Here For Full Size Image</span></a>
 				</div>
-				<div class="column col-lg-2 col-md-2 col-sm-6 col-xs-12">
-					<a class="download" href="<?php echo the_field('dimensional_side_view_image_pdf');?>" target="_blank">Dimensional Side View<br/>Click here for full PDF</a>
-					<a class="image" href="<?php echo the_field('dimensional_side_view_image');?>" target="_blank"><img src='<?php echo the_field('dimensional_side_view_image');?>' alt='<?php the_title(); ?>'/><span class="overlay">Click Here For<br/>Full Size Image</span></a>
+				<div class="column col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+					<a class="download" href="<?php echo the_field('dimensional_side_view_image_pdf');?>" target="_blank">Dimensional Side View<br/>Click here for PDF</a>
+					<a class="image lazy" href="<?php echo the_field('dimensional_side_view_image');?>" target="_blank" data-original="<?php echo the_field('dimensional_side_view_image');?>"><span class="overlay">Click Here For Full Size Image</span></a>
 				</div>
 			</div>	
 		</div>
@@ -67,11 +70,11 @@ the_post(); ?>
 	<div class="product-specs">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+				<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 					<h2 class="center">Exploded Animation & Walk Around</h2>
 					<?php echo the_field('video_embed');?>
 				</div>
-				<div class="specifications col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+				<div class="specifications col-lg-4 col-lg-offset-0 col-md-4 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 					
 					<b><?php echo the_field('specifications_title');?></b>
 					<?php if (have_rows('parts_list')) : ?>
@@ -120,7 +123,7 @@ the_post(); ?>
 			</div>
 			
 			<div class="row">
-				<div class="summary col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+				<div class="summary col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 					<p class="center"><?php echo the_field('summary');?></p>
 				</div>
 			</div>	
