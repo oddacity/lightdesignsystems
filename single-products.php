@@ -7,10 +7,14 @@
  */
 
 get_header();
-the_post(); ?>
+the_post(); 
+if (get_post_type( $post->ID ) == 'products' ) :
+	update_post_meta( $post->ID, '_last_viewed', current_time('mysql') );
+endif;
+?>
 
 <div class="single-product">
-	<div class="container">
+	<div class="container fluid-xl">
 		
 		<div class="row">
 			<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
@@ -23,15 +27,18 @@ the_post(); ?>
 							echo $terms[1];
 
 					?>
-					<span class="title"><?php the_title();?></span>
+					<span id="kit-title" class="title"><?php the_title();?></span>
 				</h1>
+				<?php if(get_field('product_intro')) : ?>
+					<p><?php echo the_field('product_intro');?></p>
+				<?php endif;?>	
 			</div>	
 		</div>
 
 		<div class="row">
 			<div class="product-image col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 				<?php if(get_field('4k_product_image')) : ?>
-					<div class="ribbon"><a href="<?php echo the_field('4k_product_image');?>" target="_blank">Download the 4K Image</a></div>
+					<div class="ribbon"><a href="<?php echo the_field('4k_product_image');?>" target="_blank">Download 4K Image</a></div>
 				<?php endif;?>
 				<img src="<?php echo the_field('product_image');?>" alt="<?php the_title();?>"/>
 			</div>
@@ -42,8 +49,8 @@ the_post(); ?>
 				<div class="column col-lg-2 col-lg-offset-1 col-md-2 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 					<span class="price"><?php echo the_field('price');?></span>
 					<div class="btn-wrap">
-						<a href="/purchase" class="btn btn-blue">Purchase Kit ></a>
-						<a href="/contact" class="btn btn-blue">Contact Us ></a>
+						<a id="purchase-btn" href="#" class="btn btn-blue">Purchase Kit <i class="fa fa-chevron-right"></i></a>
+						<a href="/contact" class="btn btn-blue">Contact Us <i class="fa fa-chevron-right"></i></a>
 					</div>	
 				</div>
 				<div class="column col-lg-2 col-lg-offset-0 col-md-2 col-md-offset-0 col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
@@ -68,7 +75,7 @@ the_post(); ?>
 	</div>
 
 	<div class="product-specs">
-		<div class="container">
+		<div class="container fluid-xl">
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-1 col-md-6 col-md-offset-1 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-1">
 					<h2 class="center">Exploded Animation & Walk Around</h2>
@@ -132,7 +139,29 @@ the_post(); ?>
 
 		<div class="container-fluid">
 			<div class="row">
-				<h2 class="truss"><span>Recently Viewed Items</span></h2>
+				<h2 class="truss"><span>Recently Viewed</span></h2>
+				<div class="col-lg-10 col-lg-offset-1 col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0">
+					<?php
+					$args = array(
+					    'post_type' => 'products',
+					    'posts_per_page' => 5,
+					    'meta_key' => '_last_viewed',
+					    'orderby' => 'meta_value',
+					    'order' => 'DESC'
+					);
+					$items = get_posts( $args ); ?>
+
+					<?php foreach($items as $item) :
+
+						$item_id = $item->ID;
+						$item_title = $item->post_title;
+						$item_image = get_field('product_image', $item);
+						$item_permalink = get_permalink($item_id);
+
+						get_template_part( 'template-modules/product-item' );
+
+					endforeach;?>	
+				</div>
 			</div>
 
 			<div class="row">

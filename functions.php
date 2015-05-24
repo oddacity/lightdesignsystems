@@ -102,6 +102,8 @@ add_action( 'widgets_init', 'lightdesignsystems_widgets_init' );
 function lightdesignsystems_scripts() {
 
 	wp_enqueue_style( 'lightdesignsystems-bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css' );
+	wp_enqueue_style( 'lightdesignsystems-fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css' );
+	wp_enqueue_style( 'lightdesignsystems-lightbox', get_template_directory_uri() . '/css/lightbox.css' );
 	wp_enqueue_style( 'lightdesignsystems-style', get_template_directory_uri() . '/style.min.css' );
 	wp_enqueue_script( 'lightdesignsystems-vendor', get_template_directory_uri() . '/js/scripts.min.js', array(), '20120206', true );
 	wp_enqueue_script( 'lightdesignsystems-custom', get_template_directory_uri() . '/js/main.min.js', array(), '20120206', true );

@@ -22,7 +22,7 @@ $children = get_terms( 'product-categories', array(
 ?>
 
 	<div class="product-category">
-		<div class="container">
+		<div class="container fluid-xl-offset">
 			<div class="row">
 
 				<h1><?php echo $categoryName;?></h1>

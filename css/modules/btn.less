@@ -1,5 +1,5 @@
 .btn {
-	border: none;
+	border: none !important;
     text-shadow: none !important;
     box-shadow: none !important;
     border-radius: 0 !important;
@@ -17,6 +17,10 @@
     text-transform: uppercase;
 }
 
+.btn i {
+    float: right    
+}
+
 .btn-white {
     background: white;
     border-bottom: 4px solid @grey;
@@ -25,9 +29,14 @@
     font-weight: 500;
 }
 
+.btn-white:hover {
+    background: @blue;
+    color: white;
+}
+
 .btn-blue {
     background: @blue;
-    padding: 10px 0;
+    padding: 10px;
     color: white;
     font-size: 10px;
     font-weight: 500;
@@ -36,7 +45,12 @@
     letter-spacing: 1px;
 }
 
+.btn-blue:active,
+.btn-blue:focus {
+    color: white
+}
+
 .btn-blue:hover {
     color: white;
-    background: @darkblue;
+    background: @red;
 }

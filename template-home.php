@@ -36,7 +36,7 @@ the_post(); ?>
 			            	echo "<div class='inner'>";
 			            	echo "<h4 class='center'><a href=''>" . $section . "</a></h4>";
 			            	echo "<img src='" . get_field('product_image',$term) . "' alt='" . $section . "'/>";
-			            	echo "<a href='' class='btn btn-blue'>More Details ></a>";
+			            	echo "<a href='" . get_term_link($term) . "' class='btn btn-blue'><span>More </span>Info <i class='fa fa-chevron-right'></i></a>";
 			            	echo "</div>";
 			            	echo "</div>";
 
@@ -62,7 +62,7 @@ the_post(); ?>
 			            	echo "<div class='inner'>";
 			            	echo "<h4 class='center'><a href=''>" . $section . "</a></h4>";
 			            	echo "<img src='" . get_field('product_image',$term) . "' alt='" . $section . "'/>";
-			            	echo "<a href='' class='btn btn-blue'>More Details ></a>";
+			            	echo "<a href='" . get_term_link($term) . "' class='btn btn-blue'><span>More </span>Info <i class='fa fa-chevron-right'></i></a>";
 			            	echo "</div>";
 			            	echo "</div>";
 
@@ -88,7 +88,7 @@ the_post(); ?>
 			            	echo "<div class='inner'>";
 			            	echo "<h4 class='center'><a href=''>" . $section . "</a></h4>";
 			            	echo "<img src='" . get_field('product_image',$term) . "' alt='" . $section . "'/>";
-			            	echo "<a href='' class='btn btn-blue'>More Details ></a>";
+			            	echo "<a href='" . get_term_link($term) . "' class='btn btn-blue'><span>More </span>Info <i class='fa fa-chevron-right'></i></a>";
 			            	echo "</div>";
 			            	echo "</div>";
 

@@ -125,10 +125,11 @@ h1 a:hover {
 	font-size: 22px;
 	color: @blue;
 	text-decoration: none;
-	font-weight: 300;
+	font-weight: 400 !important;
 }
 
 h2 {
+	font-size: 18px;
 	margin-bottom: 30px;
 }
 
@@ -411,6 +412,9 @@ ol {
 
 ul {
 	list-style: disc;
+	margin: 0;
+	font-size: 14px;
+	font-family: @roboto;
 }
 
 ol {
@@ -419,8 +423,8 @@ ol {
 
 li > ul,
 li > ol {
-	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 
 dt {
@@ -446,8 +450,7 @@ table {
 --------------------------------------------------------------*/
 button,
 input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+input[type="reset"] {
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
 	border-radius: 3px;
@@ -463,8 +466,7 @@ input[type="submit"] {
 
 button:hover,
 input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type="reset"]:hover {
 	border-color: #ccc #bbb #aaa;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
 }
@@ -992,6 +994,9 @@ object {
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+#page {
+	margin: 0 auto;
+}
 .cta-wrapper {
 	background: url(./img/cta-contact.jpg) no-repeat center center;
 	height: 300px;
@@ -1057,14 +1062,34 @@ object {
 	background: url(./img/divider-truss.png) repeat-x center center;
 	width: 100%;
 	margin: 50px 0;
+	background-size: contain;
 }
 .truss span {
 	margin-left: 8.33333333%;
 	background: url(./img/blur.png) no-repeat center center;
 	background-size: cover;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 .center {
 	text-align: center;
+}
+@media screen and (min-width: 1600px) {
+	body {
+		background: @lightgrey;
+	}
+	#page {
+		background: #fff;
+	}
+}
+@media screen and (min-width: 1200px) {
+	.fluid-xl {
+		width: 100%;
+	}
+	.fluid-xl-offset {
+		width: 83.33333333%;
+		margin: 0 auto;
+	}
 }
 @media screen and (max-width: 991px) {
 	.hero-wrapper {
@@ -1102,6 +1127,12 @@ object {
 #colophon {
 	background: url(./img/divider-truss.png) repeat-x center center;
 	height: 160px;
+}
+#masthead .logo-wrapper {
+	margin-top: 35px;
+}
+#masthead .logo-wrapper a img {
+	max-height: 130px;
 }
 #masthead .wrapper,
 #colophon .wrapper {
@@ -1156,6 +1187,16 @@ object {
 .lds-email > span {
 	display: block;
 	margin-top: 10px;
+}
+@media screen and (min-width: 1600px) {
+	#masthead .logo-wrapper {
+		margin-top: 20px;
+	}
+}
+@media screen and (max-width: 1200px) {
+	#masthead .logo-wrapper {
+		margin-top: 40px;
+	}
 }
 @media screen and (max-width: 991px) {
 	#masthead {
@@ -1250,7 +1291,7 @@ object {
 	}
 	#colophon {
 		background: none;
-		padding: 0;
+		padding: 15px 0 0 0;
 	}
 	#colophon #footer-menu li a {
 		background: none;
@@ -1261,8 +1302,18 @@ object {
 /*--------------------------------------------------------------
 # Default Page
 --------------------------------------------------------------*/
+.default-page {
+	padding: 50px 0;
+	background: #fff;
+}
 .default-page h1 {
 	margin-bottom: 30px;
+}
+.default-page h2,
+.default-page h3 {
+	margin-bottom: 30px;
+	margin-top: 30px;
+	font-weight: normal;
 }
 /*--------------------------------------------------------------
 # Homepage
@@ -1284,6 +1335,7 @@ object {
 	text-transform: uppercase;
 	color: black;
 	text-decoration: none;
+	height: 25px;
 }
 .category-thumb img {
 	margin: 15px 0;
@@ -1293,6 +1345,15 @@ object {
 		min-height: 250px;
 	}
 }
+@media screen and (max-width: 400px) {
+	.category-thumb h4,
+	.category-thumb h4 a {
+		height: 40px;
+	}
+	.category-thumb .btn span {
+		display: none;
+	}
+}
 /*--------------------------------------------------------------
 # Products
 --------------------------------------------------------------*/
@@ -1300,7 +1361,7 @@ object {
 	margin: 20px 15px 40px 15px;
 }
 .single-product {
-	background: @lightgrey;
+	background: #fff;
 	padding: 30px 0 0 0;
 }
 .single-product h1 {
@@ -1315,7 +1376,10 @@ object {
 .single-product h1 .title {
 	color: black;
 	display: block;
-	margin: 50px 0;
+	margin: 50px 0 0 0;
+}
+.single-product p {
+	margin: 0 0 40px 0;
 }
 .single-product .product-image {
 	overflow: hidden;
@@ -1327,23 +1391,26 @@ object {
 	-ms-transform: rotate(-45deg);
 	-o-transform: rotate(-45deg);
 	position: absolute;
-	padding: 20px;
+	padding: 7px;
 	width: 350px;
 	text-align: center;
-	top: 55px;
-	left: -85px;
-	background: @fadeblue;
-}
-.single-product .product-image .ribbon a {
-	color: rgba(255,255,255,0.75);
-	text-transform: uppercase;
-	font-family: @roboto-cond;
-	font-size: 16px;
-	letter-spacing: 1px;
+	top: 45px;
+	left: -105px;
+	background: @blue;
 	-webkit-transition: 0.3s ease all;
 	-moz-transition: 0.3s ease all;
 	-o-transition: 0.3s ease all;
 	transition: 0.3s ease all;
+}
+.single-product .product-image .ribbon:hover {
+	background: @red;
+}
+.single-product .product-image .ribbon a {
+	text-transform: uppercase;
+	font-family: @roboto-cond;
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: white;
 }
 .single-product .product-image .ribbon a:hover {
 	text-decoration: none;
@@ -1417,8 +1484,10 @@ object {
 }
 .single-product .product-details .btn {
 	margin-top: 20px;
-	padding: 15px;
+	padding: 15px 25px;
 	text-align: left;
+	font-size: 12px;
+	line-height: 12px;
 }
 .single-product .product-details .price {
 	font-family: @roboto;
@@ -1461,8 +1530,23 @@ object {
 	.single-product .product-details .overlay {
 		padding: 30px 15px;
 	}
+	.single-product .product-details .btn {
+		font-size: 10px;
+		line-height: 10px;
+		padding: 15px;
+		text-align: center;
+	}
+	.single-product .product-details .btn i {
+		display: none;
+	}
 }
 @media screen and (max-width: 991px) {
+	.single-product .product-specs {
+		padding: 0;
+	}
+	.single-product .product-details {
+		margin-bottom: 0;
+	}
 	.single-product .product-details .image,
 	.single-product .product-details .overlay {
 		height: 260px;
@@ -1478,4 +1562,182 @@ object {
 	.single-product .specifications {
 		margin-top: 50px;
 	}
+}
+/*--------------------------------------------------------------
+# Support & FAQ's
+--------------------------------------------------------------*/
+.support {
+	padding: 50px 0;
+	background: #fff;
+}
+.support h1 {
+	margin-bottom: 25px;
+}
+.question {
+	margin: 25px 0 35px 0;
+	padding-bottom: 25px;
+	border-bottom: 1px solid @grey;
+}
+/*--------------------------------------------------------------
+# Contact Us
+--------------------------------------------------------------*/
+.contact-us {
+	padding: 50px 0 0 0;
+	background: #fff;
+}
+.contact-us h1 {
+	margin-bottom: 25px;
+}
+.contact-us .faq-wrapper {
+	padding: 0;
+}
+.contact-us .faq-inner {
+	padding: 25px 50px;
+	margin-left: 25px;
+	min-height: 300px;
+	background: url('./img/cta-contact.jpg') no-repeat center center;
+	background-size: cover;
+}
+.contact-us .question h3,
+.contact-us .question p {
+	color: white;
+}
+.contact-us .question {
+	border-bottom: 1px solid rgba(255,255,255,0.25);
+}
+.contact-us select {
+	width: 100% !important;
+	height: 50px !important;
+	font-size: 16px;
+}
+.contact-us input,
+.contact-us textarea {
+	padding: 5px 15px;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	-o-border-radius: 6px;
+	font-size: 14px;
+	font-family: @roboto;
+	border: 1px solid rgb(204, 204, 204);
+	width: 100% !important;
+}
+.contact-us input:focus,
+.contact-us textarea:focus {
+	outline: 0;
+} 
+.contact-us label {
+	text-transform: uppercase;
+	font-family: @roboto;
+	letter-spacing: 1px;
+	font-size: 14px;
+	color: @blue;
+	margin-top: 20px;
+}
+.contact-us #ninja_forms_field_1_label {
+	margin-top: 0;
+}
+.contact-us .ninja-forms-required-items,
+.contact-us .ninja-forms-response-msg {
+	font-size: 14px;
+	margin: 0;
+	font-family: @roboto;
+}
+.contact-us .submit-wrap {
+	margin: 0;
+}
+.contact-us .submit-wrap .btn {
+	float: right;
+	padding: 15px !important;
+}
+.contact-us .cta-wrapper {
+	margin-bottom: 0;
+}
+@media screen and (max-width: 991px) {
+	.contact-us .faq-inner {
+		margin-left: 0;
+		margin-top: 50px;
+	}
+}
+/*--------------------------------------------------------------
+# Sitemap
+--------------------------------------------------------------*/
+.sitemap {
+	padding: 50px 0;
+	background: #fff;
+}
+.sitemap h1 {
+	margin-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+	.sitemap .right-col {
+		padding-top: 25px;
+	}
+}
+/*--------------------------------------------------------------
+# Photo Gallery
+--------------------------------------------------------------*/
+.photo-gallery {
+	padding: 50px 0;
+	background: #fff;
+}
+.photo-gallery h1 {
+	margin-bottom: 30px;
+}
+.photo-gallery .gallery-img-wrapper {
+	margin-bottom: 30px;
+}
+.photo-gallery .gallery-img {
+	width: 100%;
+}
+.pagination {
+	color: black;
+	letter-spacing: 1px;
+	font-family: "Roboto",sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+	width: 100%;
+	float: left;
+}
+.pagination .current {
+	min-width: 30px;
+	height: 30px;
+	background: @red !important;
+	display: block;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	margin-right: 10px;
+	color: white;
+}
+.pagination .next,
+.pagination .prev {
+	font-size: 12px;
+	line-height: 30px;
+}
+.pagination .next i {
+	margin-left: 10px;
+}
+.pagination .prev i {
+	margin-right: 10px;
+}
+.pagination .page-numbers {
+	min-width: 30px;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 10px;
+	text-align: center;
+	display: block;
+	float: left;
+	background: @lightgrey;
+	padding: 0 15px;
+	-webkit-transition: 0.3s ease all;
+	-moz-transition: 0.3s ease all;
+	-o-transition: 0.3s ease all;
+	transition: 0.3s ease all;
+}
+.pagination .page-numbers:hover {
+	background: @blue;
+	color: white;
+	text-decoration: none;
 }
